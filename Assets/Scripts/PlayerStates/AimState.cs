@@ -23,7 +23,7 @@ public class AimState : PlayerState
 
 		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
-			player.shootingStateMachine.ChangeState(player.shootState);
+			player.shootingStateMachine.ChangeState(player.chargeState);
 		}
 	}
 

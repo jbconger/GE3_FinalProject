@@ -17,6 +17,7 @@ public class Arrow : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		Destroy(this.gameObject);
+		if (!collision.gameObject.CompareTag("Arrow"))
+			Destroy(this.gameObject);
 	}
 }

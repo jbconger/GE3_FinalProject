@@ -24,8 +24,14 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] public float moveSpeed = 5f;
 
 	[Header("Shooting")]
-	[SerializeField] public float arrowSpeed = 10f;
-	[SerializeField] public GameObject arrow;
+	[SerializeField] public GameObject arrow; // projectile game object
+	[SerializeField] public float minArrowSpeed = 10f;
+	[SerializeField] public float maxArrowSpeed = 40f;
+	[SerializeField] public float maxChargeTime = 3f;
+	[SerializeField] public float maxArrowDuration = 5f;
+
+	[HideInInspector] public float chargeSpeed;
+	[HideInInspector] public float currentCharge;
 
 	// States
 	[HideInInspector] public PlayerStateMachine movementStateMachine;
@@ -34,6 +40,7 @@ public class PlayerController : MonoBehaviour
 	[HideInInspector] public MoveState moveState;
 
 	[HideInInspector] public AimState aimState;
+	[HideInInspector] public ChargeState chargeState;
 	[HideInInspector] public ShootState shootState;
 	#endregion
 
@@ -48,7 +55,10 @@ public class PlayerController : MonoBehaviour
 
 		moveState = new MoveState(this);
 		aimState = new AimState(this);
+		chargeState = new ChargeState(this);
 		shootState = new ShootState(this);
+
+		chargeSpeed = (maxArrowSpeed - minArrowSpeed) / maxChargeTime;
 	}
 
 	private void Start()

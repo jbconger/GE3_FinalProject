@@ -30,8 +30,8 @@ public class ShootState : AimState
 	private void FireArrow()
 	{
 		GameObject arrow = GameObject.Instantiate(player.arrow, player.firePoint.position, player.firePoint.rotation);
-		arrow.GetComponent<Rigidbody2D>().AddForce(player.firePoint.up * player.arrowSpeed, ForceMode2D.Impulse);
+		arrow.GetComponent<Rigidbody2D>().AddForce(player.firePoint.up * player.currentCharge, ForceMode2D.Impulse);
 
-		GameObject.Destroy(arrow.gameObject, 4f);
+		GameObject.Destroy(arrow.gameObject, player.maxArrowDuration);
 	}
 }
