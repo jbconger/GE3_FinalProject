@@ -17,7 +17,7 @@ public class Arrow : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (!collision.gameObject.CompareTag("Arrow"))
+		if (!collision.gameObject.CompareTag("Arrow") && collision.gameObject.layer.ToString() != "Projectiles")
 			Destroy(this.gameObject);
 	}
 }
