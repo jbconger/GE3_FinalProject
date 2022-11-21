@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	[Header("Components")]
 	[SerializeField] public Transform firePoint;
 	[SerializeField] public Rigidbody2D rb;
+	[SerializeField] public PlayerAudio playerAudio;
 	[HideInInspector] private Camera mainCamera;
 
 	public struct Inputs

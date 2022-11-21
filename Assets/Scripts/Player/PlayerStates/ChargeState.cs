@@ -9,6 +9,7 @@ public class ChargeState : AimState
 		base.Enter();
 
 		player.currentCharge = player.minArrowSpeed;
+		player.playerAudio.PlaySound("draw");
 	}
 
 	public override void Exit()

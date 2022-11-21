@@ -8,6 +8,7 @@ public class ShootState : AimState
 	{
 		base.Enter();
 		FireArrow();
+		player.playerAudio.PlaySound("shoot");
 
 		player.shootingStateMachine.ChangeState(player.aimState);
 	}
