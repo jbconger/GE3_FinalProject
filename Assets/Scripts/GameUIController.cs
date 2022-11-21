@@ -6,6 +6,7 @@ public class GameUIController : MonoBehaviour
 {
     [SerializeField] private MenuAudio menuAudio;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject levelCompleteMenu;
     [SerializeField] private PlayerController playerController;
 
     [HideInInspector] public static bool isPaused = false;
@@ -38,4 +39,11 @@ public class GameUIController : MonoBehaviour
 
         menuAudio.PlaySound("pause");
     }
+
+    public void LevelComplete()
+	{
+        playerController.enabled = false;
+        levelCompleteMenu.SetActive(true);
+        levelCompleteMenu.GetComponent<AudioSource>().Play();
+	}
 }

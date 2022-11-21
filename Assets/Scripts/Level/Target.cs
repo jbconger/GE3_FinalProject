@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Goal : MonoBehaviour
+public class Target : MonoBehaviour
 {
-    public UnityEvent OnGoalHit;
+    public UnityEvent OnTargetDestroyed;
 
 	[SerializeField] private AudioSource audioSource;
 
 	private void Awake()
 	{
-        if (OnGoalHit is null)
-            OnGoalHit = new UnityEvent();
+        if (OnTargetDestroyed is null)
+            OnTargetDestroyed = new UnityEvent();
 		if (audioSource is null)
 			audioSource = GetComponent<AudioSource>();
 	}
@@ -19,7 +19,7 @@ public class Goal : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Arrow"))
 		{
-			OnGoalHit.Invoke();
+			OnTargetDestroyed.Invoke();
 			audioSource.Play();
 			Destroy(this.gameObject);
 		}
