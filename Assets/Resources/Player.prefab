@@ -166,7 +166,7 @@ MonoBehaviour:
   firePoint: {fileID: 2130970653115368357}
   rb: {fileID: 3666670958579466970}
   moveSpeed: 5
-  arrowSpeed: 10
+  arrowSpeed: 5
   arrow: {fileID: 8812109897539923946, guid: 51a3b548d62ab29489524e7e4c557e43, type: 3}
 --- !u!50 &3666670958579466970
 Rigidbody2D:
