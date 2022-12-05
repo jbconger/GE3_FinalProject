@@ -21,6 +21,7 @@ public class Target : MonoBehaviour
 		{
 			OnTargetDestroyed.Invoke();
 			audioSource.Play();
+			while (audioSource.isPlaying) { }
 			Destroy(this.gameObject);
 		}
 	}
