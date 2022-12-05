@@ -5,9 +5,16 @@ using UnityEngine;
 public class ObjectiveManager : MonoBehaviour
 {
     [SerializeField] private Target[] targets;
+
+	[HideInInspector] private AudioSource audioSource;
     private int targetCount;
 
     [SerializeField] private GameUIController uiController;
+
+	private void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
 
 	private void Start()
 	{
@@ -21,6 +28,7 @@ public class ObjectiveManager : MonoBehaviour
 	public void TargetDestroyed()
 	{
 		targetCount--;
+		audioSource.Play();
 
 		if (targetCount <= 0)
 			uiController.LevelComplete();
