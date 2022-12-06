@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 130ed98ed27831d44a26e7d38bac4604
   - enabled: 1
-    path: Assets/Scenes/Gymnasium.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Level1.unity
+    guid: 6c6155e972920de4b90332fac5fef262
   m_configObjects: {}
