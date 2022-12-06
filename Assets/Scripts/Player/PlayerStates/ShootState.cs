@@ -15,6 +15,7 @@ public class ShootState : AimState
 
 	public override void Exit()
 	{
+		player.currentCharge = 0f;
 		base.Exit();
 	}
 

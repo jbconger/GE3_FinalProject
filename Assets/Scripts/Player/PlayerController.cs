@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] public float maxArrowSpeed = 40f;
 	[SerializeField] public float maxChargeTime = 3f;
 	[SerializeField] public float maxArrowDuration = 5f;
+	[SerializeField] public Slider chargeIndicator;
 
 	[HideInInspector] public float chargeSpeed;
 	[HideInInspector] public float currentCharge;
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
 		CheckInput();
 		movementStateMachine.StateUpdate();
 		shootingStateMachine.StateUpdate();
+		chargeIndicator.value = (currentCharge / maxArrowSpeed);
 	}
 
 	private void FixedUpdate()
