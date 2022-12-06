@@ -23,14 +23,20 @@ public class ObjectiveManager : MonoBehaviour
 		{
 			target.OnTargetDestroyed.AddListener(TargetDestroyed);
 		}
+
+		uiController.UpdateTargetCount(targetCount);
 	}
 
 	public void TargetDestroyed()
 	{
 		targetCount--;
+		uiController.UpdateTargetCount(targetCount);
 		audioSource.Play();
 
 		if (targetCount <= 0)
+		{
+			uiController.DeactivateCounter();
 			uiController.LevelComplete();
+		}
 	}
 }
